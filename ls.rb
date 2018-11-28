@@ -8,11 +8,9 @@ def show_dot
   print Dir.glob(".*")
 end
 
-
 case option
-when "-a"
-  
-show_dot
+when "-a"  
+  show_dot
 else
-show_all
+  show_all
 end
