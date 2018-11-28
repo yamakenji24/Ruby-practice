@@ -4,13 +4,13 @@ def show_all
   p Dir.glob("*")
 end
 
-def show_dot(option)
-  p Dir.glob(".*|*")
+def show_dot
+  p Dir.glob(".*")
 end
 
 case option
 when "-a"
-show_dot(option)
+show_dot
 else
 show_all
 end
