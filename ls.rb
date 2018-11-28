@@ -1,16 +1,16 @@
 option = ARGV[0]
 
 def show_all
-  p Dir.glob("*")
+  print Dir.glob("*")
 end
 
-def show_dot(option)
-  p Dir.glob(".*|*")
+def show_dot
+  print Dir.glob(".*")
 end
 
 case option
 when "-a"
-show_dot(option)
+  show_dot
 else
-show_all
+  show_all
 end
