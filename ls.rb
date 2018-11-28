@@ -9,7 +9,7 @@ def show_dot
 end
 
 case option
-when "-a"  
+when "-a"
   show_dot
 else
   show_all
