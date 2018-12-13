@@ -1,4 +1,4 @@
-# coding: utf-8      
+# coding: utf-8
 def main
   ct = 0
   wh = 1
@@ -10,42 +10,48 @@ def main
   board_display(board)
   loop do
     print "-------第#{ct}手 "
-    if wh == 1
+    case wh
+    when 1
       print "黒"
-    else
+    when 2
       print "白"
     end
     print "番 ? "
-    x = gets.to_i - 1
-    y = gets.to_i - 1
-    if ( !input_check(x, y, wh, board))
-      print "無効\n"
+    x,y = input
+    if !input_check(x, y, wh, board)
+      puts "無効"
       redo
     end
     board_display(board)
     ct += 1
-    if wh == 1
+    case wh
+    when 1
       wh = 2
-    else
-      wh = 1
+    when 2
+      wh =1
     end
   end
 end
 
+def input
+  x = gets.to_i - 1
+  y = gets.to_i - 1
+  return [x,y]
+end
 def game_stop()
 
 end
 
 def input_check(x, y, wh, board)
-  return false if ((x >=3 || y >= 3) || board[x][y] != 0)
+  return false if (x >=3 || y >= 3) || board[x][y] != 0
   board[x][y] = wh
   return true
 end
 
 def board_display(board)
-  for i in 0..2
-    board[i].each do |num|
-      case num
+  board.each do|rows|
+    rows.each do |columns|
+      case columns
       when 0
         print "・"
       when 1
