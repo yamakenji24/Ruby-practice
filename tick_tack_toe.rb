@@ -8,7 +8,7 @@ def main
 
   print "-------ゲーム開始\n"
   board_display(board)
-  while(1)
+  loop do
     print "-------第#{ct}手 "
     if wh == 1
       print "黒"
@@ -16,8 +16,8 @@ def main
       print "白"
     end
     print "番 ? "
-    x = (gets.to_i) -1
-    y = (gets.to_i) -1
+    x = gets.to_i - 1
+    y = gets.to_i - 1
     if ( !input_check(x, y, wh, board))
       print "無効\n"
       redo
@@ -44,12 +44,13 @@ end
 
 def board_display(board)
   for i in 0..2
-    for j in 0..2
-      if (board[i][j] == 0)
+    board[i].each do |num|
+      case num
+      when 0
         print "・"
-      elsif board[i][j] == 1
+      when 1
         print "● "
-      elsif board[i][j] == 2
+      when 2
         print "■ "
       end
     end
